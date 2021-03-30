@@ -2,6 +2,8 @@ import express, { Express, Request, Response } from "express";
 import cors from "cors";
 import dotenv from "dotenv";
 import { AddressInfo } from "net";
+import { createStudent } from "./endpoints/createStudent";
+import { getAllStudents } from "./endpoints/getAllStudents";
 
 dotenv.config();
 
@@ -9,6 +11,9 @@ const app: Express = express();
 app.use(express.json());
 app.use(cors());
 
+app.post("/student", createStudent);
+
+app.get("/student/all", getAllStudents);
 
 
 
