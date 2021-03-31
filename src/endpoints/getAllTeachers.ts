@@ -1,21 +1,21 @@
 import { Request, Response } from "express";
 import connection from "../connection";
-import { students } from "../types/student"
+import { teachers } from "../types/teacher"
 
-export const getAllStudents = async (req: Request, res: Response): Promise<void> => {
+export const getAllTeachers = async (req: Request, res: Response): Promise<void> => {
 
     try {
-        const students: students[] = await connection.raw(`
+        const teachers: teachers[] = await connection.raw(`
            SELECT id, name, email, birth_date
-           FROM student
+           FROM teacher
         `);
   
-        if (!students.length) {
+        if (!teachers.length) {
           res.statusCode = 404;
-          throw new Error("Student not found");
+          throw new Error("Teacher not found");
         }
   
-        res.status(200).send(students[0]);
+        res.status(200).send(teachers[0]);
 
       } catch (error) {
           

@@ -2,6 +2,5 @@ export type students = {
     id: string,
     name: string,
     email: string,
-    birth_date: Date,
-    hobby: string
+    birth_date: Date
 }

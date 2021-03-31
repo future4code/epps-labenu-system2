@@ -1,29 +1,18 @@
-import express, { Express, Request, Response } from "express";
-import cors from "cors";
-import dotenv from "dotenv";
-import { AddressInfo } from "net";
+import app from "./app";
 import { createStudent } from "./endpoints/createStudent";
+import { createTeacher } from "./endpoints/createTeacher";
+import { getAgeById } from "./endpoints/getAgeById";
 import { getAllStudents } from "./endpoints/getAllStudents";
-
-dotenv.config();
-
-const app: Express = express();
-app.use(express.json());
-app.use(cors());
+import { getAllTeachers } from "./endpoints/getAllTeachers";
 
 app.post("/student", createStudent);
 
-app.get("/student/all", getAllStudents);
+app.post("/teacher", createTeacher);
+
+app.get("/student", getAllStudents);
+
+app.get("/student/:id", getAgeById);
+
+app.get("/teacher", getAllTeachers);
 
 
-
-
-
-const server = app.listen(process.env.PORT || 3003, () => {
-    if (server) {
-       const address = server.address() as AddressInfo;
-       console.log(`Server is running in http://localhost: ${address.port}`);
-    } else {
-       console.error(`Failure upon starting server.`);
-    }
-});
