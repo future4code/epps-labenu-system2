@@ -1,12 +1,12 @@
 import { Request, Response } from "express";
 import connection from "../connection";
 
-export const createStudent = async (req: Request, res: Response): Promise<void> => {
+export const createTeacher = async (req: Request, res: Response): Promise<void> => {
     let errorCode: number = 400;
 
     try {
         await connection.raw(`
-        INSERT INTO student (id, name, email, birth_date)
+        INSERT INTO teacher (id, name, email, birth_date)
         VALUES (
             "${req.body.id}",
             "${req.body.name}",
@@ -20,7 +20,7 @@ export const createStudent = async (req: Request, res: Response): Promise<void> 
             throw new Error("Please check the fields.");
           }
 
-        res.status(200).send("Student created successfully!");
+        res.status(200).send("Teacher created successfully!");
         
     } catch (error) {
         console.log(error.message);

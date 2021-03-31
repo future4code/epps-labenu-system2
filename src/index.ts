@@ -1,7 +1,18 @@
-import app from "./app"
+import app from "./app";
 import { createStudent } from "./endpoints/createStudent";
+import { createTeacher } from "./endpoints/createTeacher";
+import { getAgeById } from "./endpoints/getAgeById";
 import { getAllStudents } from "./endpoints/getAllStudents";
+import { getAllTeachers } from "./endpoints/getAllTeachers";
 
 app.post("/student", createStudent);
 
+app.post("/teacher", createTeacher);
+
 app.get("/student", getAllStudents);
+
+app.get("/student/:id", getAgeById);
+
+app.get("/teacher", getAllTeachers);
+
+
