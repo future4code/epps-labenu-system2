@@ -5,13 +5,12 @@ export const createStudent = async (req: Request, res: Response): Promise<void> 
 
     try {
         await connection.raw(`
-        INSERT INTO student (id, name, email, birthDate, hobby)
+        INSERT INTO student (id, name, email, birth_date)
         VALUES (
             ${req.body.id},
             "${req.body.name}",
             "${req.body.email}",
-            "${req.body.birthDate}",
-            "${req.body.hobby}"
+            "${req.body.birthDate}"
         )
         `)
 

@@ -16,7 +16,7 @@ export const getAllStudents = async (req: Request, res: Response): Promise<void>
           throw new Error("Student not found");
         }
   
-        res.status(200).send(students);
+        res.status(200).send(students[0]);
 
       } catch (error) {
           
