@@ -1,5 +1,6 @@
 import { Request, Response } from "express";
-import { connection } from "../connection";
+import connection from "../connection";
+
 import { students } from "../types/student"
 
 export const getAllStudents = async (req: Request, res: Response): Promise<void> => {
