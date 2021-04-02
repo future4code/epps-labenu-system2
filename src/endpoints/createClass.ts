@@ -17,34 +17,33 @@ export const createClass = async (req: Request, res: Response) => {
         }
 
         if (!input.id || !input.name || !input.start_date || !input.end_date || !input.type) {
-            errorCode = 402;
+            errorCode = 422;
             throw new Error("Please check the fields.");
         }
 
         if (input.type !== TYPE.INTEGRAL && input.type !== TYPE.NOTURNO) {
-            errorCode = 402;
+            errorCode = 422;
             throw new Error("The possible fields are: 'full' or 'night'.");
         }
 
         if (input.type === TYPE.NOTURNO) {
-            input.name = input.name+= "-na-night"
+            input.name = input.name+="-na-night"
         }
 
         await connection.raw(`
         INSERT INTO class (id, name, start_date, end_date, module)
         VALUES (
             ${input.id},
-            "${input.name},
-            "${input.start_date},
-            "${input.end_date},
-            "${input.module}"   
+            "${input.name}",
+            "${input.start_date}",
+            "${input.end_date}",
+            ${input.module}   
         )
         `)
 
         res.status(201).send({message: "Class created successfully!"})
         
     } catch (error) {
-        console.log(error.message);
         res.status(errorCode).send(error.message || error.sqlMessage);
     }
 }

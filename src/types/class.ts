@@ -3,7 +3,7 @@ export type classes = {
     name: string,
     start_date: string,
     end_date: string,
-    module: 0,
+    module: number,
     type: TYPE
 }
 
