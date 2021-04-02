@@ -1,17 +1,31 @@
+import { Request, Response } from "express";
 import connection from "../connection";
 
-export const getAgeById = async (id: string): Promise<any> => {
+export const getAgeById = async (req: Request, res: Response): Promise<any> => {
+    let errorCode: number = 400;
 
     try {
+        const id = req.params.id
+
+        if (isNaN(Number(id))) {
+            errorCode = 422;
+            throw new Error("Please only numeric values")
+        }
+
         const result = await connection.raw(`
-            SELECT name, (birthdate/365) AS age
-            FROM student
-            WHERE id = "${id}";
+        SELECT ROUND(DATEDIFF("2021-01-01", birth_date)/365) as age
+        FROM student
+        WHERE id = ${id};
         `)
 
-        return result[0][0]
+        if (result[0].length === 0) {
+            errorCode = 404;
+            throw new Error("Student not found")
+        }
+
+        res.status(200).send({student: result[0][0]});
 
     } catch (error) {
-        throw new Error(error.sqlMessage || error.message);
+        res.status(errorCode).send(error.message || error.sqlMessage);
     }
 }
