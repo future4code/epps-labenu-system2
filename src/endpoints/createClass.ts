@@ -41,7 +41,7 @@ export const createClass = async (req: Request, res: Response) => {
         )
         `)
 
-        res.status(201).send({message: "Class created successfully!"});
+        res.status(201).send({message: "Class created successfully!"})
         
     } catch (error) {
         console.log(error.message);

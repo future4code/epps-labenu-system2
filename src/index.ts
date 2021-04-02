@@ -6,11 +6,12 @@ import { getAgeById } from "./endpoints/getAgeById";
 import { getAllStudents } from "./endpoints/getAllStudents";
 import { getAllTeachers } from "./endpoints/getAllTeachers";
 
-app.post("/class", createClass);
 
 app.post("/student", createStudent);
 
 app.post("/teacher", createTeacher);
+
+app.post("/class", createClass);
 
 app.get("/student", getAllStudents);
 
