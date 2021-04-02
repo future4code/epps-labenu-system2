@@ -1,4 +1,8 @@
-## LabenuSystem:
+# LABENUSYSTEM 🏦🎲
+
+<h4 align="center">
+    <img alt="GitHub language count" src="https://img.shields.io/github/languages/count/future4code/epps-labenu-system2"> <img alt="GitHub top language" src="https://img.shields.io/github/languages/top/future4code/epps-labenu-system2">
+</h4>
 
 Você estuda na Labenu_ há tanto tempo que já parecem anos, não é? Então, hoje, vamos pedir para criar um sistema que represente o básico da nossa organização. 
 
@@ -7,6 +11,15 @@ Ele deve possuir, ao menos, as 3 entidades importantes:
 1. Estudantes 
 
     Representa estudantes da nossa instituição. Eles devem possuir: id, nome, email, data de nascimento e os principais hobbies dele. 
+
+    ```
+    SELECT student_id, name, email, birth_date, class_id, title
+    FROM student_hobby
+    JOIN student
+    ON student_hobby.student_id = student.id
+    JOIN hobby
+    ON student_hobby.hobby_id = hobby.id
+    ```
 
 2. Docente
 
@@ -36,7 +49,7 @@ As funcionalidades básicas são:
 <hr />
 <br />
 
-### Tabelas no MySQL
+## Tabelas no MySQL:
 <br />
 
 ```

@@ -8,8 +8,13 @@ export const getAllStudents = async (
 ): Promise<void> => {
   try {
     const students: students[] = await connection.raw(`
-           SELECT * FROM student
-        `);
+    SELECT student_id, name, email, birth_date, class_id, title 
+    FROM student_hobby
+    JOIN student
+    ON student_hobby.student_id = student.id
+    JOIN hobby
+    ON student_hobby.hobby_id = hobby.id;
+    `);
 
     if (!students.length) {
       res.statusCode = 404;

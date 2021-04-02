@@ -8,8 +8,13 @@ export const getAllTeachers = async (
 ): Promise<void> => {
   try {
     const teachers: teachers[] = await connection.raw(`
-           SELECT * FROM teacher
-        `);
+    SELECT teacher_id, name, email, birth_date, class_id, title 
+    FROM teacher_specialty
+    JOIN teacher
+    ON teacher_specialty.teacher_id = teacher.id
+    JOIN specialty
+    ON teacher_specialty.specialty_id = specialty.id;
+    `);
 
     if (!teachers.length) {
       res.statusCode = 404;
