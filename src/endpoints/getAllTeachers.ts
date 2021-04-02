@@ -6,8 +6,7 @@ export const getAllTeachers = async (req: Request, res: Response): Promise<void>
 
     try {
         const teachers: teachers[] = await connection.raw(`
-           SELECT id, name, email, birth_date
-           FROM teacher
+           SELECT * FROM teacher
         `);
   
         if (!teachers.length) {
