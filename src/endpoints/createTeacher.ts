@@ -20,7 +20,7 @@ export const createTeacher = async (req: Request, res: Response): Promise<void> 
             throw new Error("Please check the fields.");
           }
 
-        res.status(200).send("Teacher created successfully!");
+        res.status(201).send({message: "Teacher created successfully!"});
         
     } catch (error) {
         console.log(error.message);
