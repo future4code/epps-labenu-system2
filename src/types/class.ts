@@ -1,18 +1,14 @@
 export type classes = {
-    id: string,
+    id: number,
     name: string,
-    email: string,
-    start_date: Date,
-    end_date: Date,
-    module: modules
+    start_date: string,
+    end_date: string,
+    module: 0,
+    type: TYPE
 }
 
-export enum modules {
-    UM = 1,
-    DOIS = 2,
-    TRÊS = 3,
-    QUATRO = 4,
-    CINCO = 5,
-    SEIS = 6,
-    SETE = 7
+export enum TYPE {
+    INTEGRAL = "integral",
+    NOTURNO = "noturno"
 }
+
