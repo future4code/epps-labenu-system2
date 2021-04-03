@@ -1,8 +1,15 @@
 # LABENUSYSTEM 🏦🎲
 
+<h4>
+
 <h4 align="center">
     <img alt="GitHub language count" src="https://img.shields.io/github/languages/count/future4code/epps-labenu-system2"> <img alt="GitHub top language" src="https://img.shields.io/github/languages/top/future4code/epps-labenu-system2">
 </h4>
+
+<h4 align='center'>
+👉 Status: Concluído ✅👏
+</h4>
+<hr />
 
 Você estuda na Labenu_ há tanto tempo que já parecem anos, não é? Então, hoje, vamos pedir para criar um sistema que represente o básico da nossa organização. 
 
@@ -21,6 +28,12 @@ Ele deve possuir, ao menos, as 3 entidades importantes:
     ON student_hobby.hobby_id = hobby.id
     ```
 
+    ``
+    GET http://localhost:3006/student
+    ``
+
+    <br/>
+
 2. Docente
 
     Representa docentes da nossa instituição. Eles devem possuir: id, nome, email, data de nascimento e todas as especialidades dele. Há 7 especialidades: React, Redux, CSS, Testes, Typescript, Programação Orientada a Objetos e Backend
@@ -33,6 +46,12 @@ Ele deve possuir, ao menos, as 3 entidades importantes:
     JOIN specialty
     ON teacher_specialty.specialty_id = specialty.id;
     ```
+
+    ``
+    GET http://localhost:3006/teacher
+    ``
+
+    <br />
 
 3. Turma
 
@@ -49,19 +68,37 @@ Ele deve possuir, ao menos, as 3 entidades importantes:
     ON student.class_id = teacher.class_id;
     ```
 
+    ``
+    GET http://localhost:3006/class
+    ``
+
+    <br />
+
 As funcionalidades básicas são:
 
-→ Criar estudante;
+→ Criar estudante ✅
 
-→ Criar docente;
+→ Criar docente ✅
 
-→ Criar turma;
+→ Criar turma ✅
 
-→ Adicionar estudante na turma;
+→ Adicionar estudante na turma ✅
 
-→ Adicionar docente na turma;
+→ Adicionar docente na turma ✅
 
-→ Pegar a idade de algum estudante a partir do id
+→ Pegar a idade de algum estudante a partir do id ✅
+
+<br/>
+
+#### Desafios:
+
+→ Exibir docentes ✅
+
+→ Exibir estudantes ✅
+
+→ Remover estudante ✅
+
+→ Remover docente ✅
 
 <br />
 <hr />
