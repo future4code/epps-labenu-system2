@@ -8,7 +8,7 @@ export const getAllTeachers = async (
 ): Promise<void> => {
   try {
     const teachers: teachers[] = await connection.raw(`
-    SELECT teacher_id, name, email, birth_date, class_id, title 
+    SELECT teacher_id, name, email, birth_date, class_id, title as specialty 
     FROM teacher_specialty
     JOIN teacher
     ON teacher_specialty.teacher_id = teacher.id
@@ -22,9 +22,8 @@ export const getAllTeachers = async (
     }
 
     res.status(200).send(teachers[0]);
-    
+
   } catch (error) {
-    console.log(error);
     res.send(error.message || error.sqlMessage);
   }
 };

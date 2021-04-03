@@ -25,11 +25,29 @@ Ele deve possuir, ao menos, as 3 entidades importantes:
 
     Representa docentes da nossa instituição. Eles devem possuir: id, nome, email, data de nascimento e todas as especialidades dele. Há 7 especialidades: React, Redux, CSS, Testes, Typescript, Programação Orientada a Objetos e Backend
 
+    ```
+    SELECT teacher_id, name, email, birth_date, class_id, title 
+    FROM teacher_specialty
+    JOIN teacher
+    ON teacher_specialty.teacher_id = teacher.id
+    JOIN specialty
+    ON teacher_specialty.specialty_id = specialty.id;
+    ```
+
 3. Turma
 
     Toda turma é composta das seguintes características: id, nome, data de início, data de término, lista de professores responsáveis, uma lista de alunos e módulo atual em que a turma está.
 
     O módulo pode assumir os valores de 1 a 7 ou `undefined`, indicando que as aulas dessa turma ainda não começaram. Para esse exercício, vamos considerar que existam dois tipos de turma: integral ou noturna. Há uma restrição para o nome das turmas noturnas: tem que terminar com `-na-night`.
+
+    ```
+    SELECT class.id, class.name, class.start_date, class.end_date, teacher.name, student.name, class.module 
+    FROM teacher
+    RIGHT JOIN class
+    ON teacher.class_id = class.id
+    RIGHT JOIN student
+    ON student.class_id = teacher.class_id;
+    ```
 
 As funcionalidades básicas são:
 

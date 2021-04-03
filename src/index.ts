@@ -5,6 +5,7 @@ import { createTeacher } from "./endpoints/createTeacher";
 import { deleteStudent } from "./endpoints/deleteStudent";
 import { deleteTeacher } from "./endpoints/deleteTeacher";
 import { getAgeById } from "./endpoints/getAgeById";
+import { getAllClasses } from "./endpoints/getAllClasses";
 import { getAllStudents } from "./endpoints/getAllStudents";
 import { getAllTeachers } from "./endpoints/getAllTeachers";
 import { updateStudent } from "./endpoints/updateStudent";
@@ -21,6 +22,8 @@ app.get("/student", getAllStudents);
 app.get("/student/:id", getAgeById);
 
 app.get("/teacher", getAllTeachers);
+
+app.get("/class", getAllClasses);
 
 app.put("/student", updateStudent);
 
