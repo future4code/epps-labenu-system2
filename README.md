@@ -109,7 +109,7 @@ As funcionalidades básicas são:
 
 ```
 CREATE TABLE class(
-	id INT NOT NULL PRIMARY KEY,
+    id INT NOT NULL PRIMARY KEY,
     name VARCHAR(50) NOT NULL,
     start_date DATE NOT NULL,
     end_date DATE NOT NULL,
@@ -119,25 +119,25 @@ CREATE TABLE class(
 
 ```
 CREATE TABLE student( 
-	id INT NOT NULL PRIMARY KEY, 
-	name VARCHAR(50) NOT NULL, 
-	email VARCHAR(50) NOT NULL UNIQUE, 
-	birth_date DATE NOT NULL, 
-	class_id INT NOT NULL, 
-	FOREIGN KEY (class_id) REFERENCES class(id)
+    id INT NOT NULL PRIMARY KEY, 
+    name VARCHAR(50) NOT NULL, 
+    email VARCHAR(50) NOT NULL UNIQUE, 
+    birth_date DATE NOT NULL, 
+    class_id INT NOT NULL, 
+    FOREIGN KEY (class_id) REFERENCES class(id)
 );
 ```
 
 ```
 CREATE TABLE hobby(
-	id INT NOT NULL PRIMARY KEY,
+    id INT NOT NULL PRIMARY KEY,
     title VARCHAR(255) NOT NULL UNIQUE
 );
 ```
 
 ```
 CREATE TABLE student_hobby(
-	student_id INT NOT NULL,
+    student_id INT NOT NULL,
     hobby_id INT NOT NULL,
     PRIMARY KEY (student_id, hobby_id),
     FOREIGN KEY (student_id) REFERENCES student(id),
@@ -147,25 +147,25 @@ CREATE TABLE student_hobby(
 
 ```
 CREATE TABLE teacher( 
-	id INT NOT NULL PRIMARY KEY, 
-	name VARCHAR(50) NOT NULL, 
-	email VARCHAR(50) UNIQUE NOT NULL, 
-	birth_date DATE NOT NULL, 
-	class_id INT NOT NULL, 
-	FOREIGN KEY (class_id) REFERENCES class(id)
+    id INT NOT NULL PRIMARY KEY, 
+    name VARCHAR(50) NOT NULL, 
+    email VARCHAR(50) UNIQUE NOT NULL, 
+    birth_date DATE NOT NULL, 
+    class_id INT NOT NULL, 
+    FOREIGN KEY (class_id) REFERENCES class(id)
 );
 ```
 
 ```
 CREATE TABLE specialty(
-	id INT NOT NULL PRIMARY KEY,
+    id INT NOT NULL PRIMARY KEY,
     title VARCHAR(255) NOT NULL UNIQUE
 );
 ```
 
 ```
 CREATE TABLE teacher_specialty( 
-	teacher_id INT NOT NULL,
+    teacher_id INT NOT NULL,
     specialty_id INT NOT NULL,
     PRIMARY KEY (teacher_id, specialty_id),
     FOREIGN KEY (teacher_id) REFERENCES teacher(id),
