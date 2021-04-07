@@ -1,0 +1,12 @@
+POST http://localhost:3003/class
+Content-Type: application/json
+
+{
+	
+	"id": 1,
+	"name": "Newton",
+	"start_date": "2019-09-01",
+	"end_date": "2020-03-01",
+	"type": "integral"
+	
+}
